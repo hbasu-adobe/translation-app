@@ -1,0 +1,17 @@
+{
+  "name": "genstudio-translation-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GS Create Translation Extension",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@adobe/aio-sdk": "^6",
+    "@adobe/genstudio-extensibility-sdk": "^2.2.1",
+    "@google-cloud/translate": "^8.0.0",
+    "axios": "^1.11.0",
+    "gh": "^2.8.9",
+    "openai": "^5.9.0"
+  }
+}

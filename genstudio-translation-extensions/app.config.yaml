@@ -1,0 +1,41 @@
+extensions:
+  dx_genstudio/translation/1:
+    $include: ext.config.yaml
+    runtimeManifest:
+      packages:
+        translation:
+          license: Apache-2.0
+          actions:
+            locales:
+              function: src/actions/getSupportedLocales.js
+              web: "yes"
+              runtime: nodejs:22
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: true
+                final: false
+            translate:
+              function: src/actions/getTranslation.js
+              web: "yes"
+              runtime: nodejs:22
+              inputs:
+                LOG_LEVEL: debug
+                # Translation service selector (google, openai, azure, deepl)
+                TRANSLATION_SERVICE: $TRANSLATION_SERVICE
+                # Google Translate Configuration
+                GOOGLE_TRANSLATE_API_KEY: $GOOGLE_TRANSLATE_API_KEY
+                GOOGLE_CLOUD_PROJECT_ID: $GOOGLE_CLOUD_PROJECT_ID
+                # OpenAI Configuration
+                OPENAI_API_KEY: $OPENAI_API_KEY
+                OPENAI_MODEL: $OPENAI_MODEL
+                # Azure OpenAI Configuration
+                AZURE_OPENAI_API_KEY: $AZURE_OPENAI_API_KEY
+                AZURE_OPENAI_ENDPOINT: $AZURE_OPENAI_ENDPOINT
+                AZURE_OPENAI_API_VERSION: $AZURE_OPENAI_API_VERSION
+                AZURE_OPENAI_DEPLOYMENT_NAME: $AZURE_OPENAI_DEPLOYMENT_NAME
+                # DeepL Configuration
+                DEEPL_API_KEY: $DEEPL_API_KEY
+              annotations:
+                require-adobe-auth: true
+                final: false
